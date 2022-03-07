@@ -15,6 +15,10 @@ btnAdd.addEventListener('click',function (){
    {
     return  alert("Please add note title and details");
    }
+   else if(noteTitle.value.charAt(0) == " " || noteTxt.value.charAt(0) == " ")
+   {
+    return  alert("Please add a valid note,avoid starting with space");
+   }
    else{
       let notes =localStorage.getItem("notes");
        if(notes == null){
@@ -117,16 +121,21 @@ searchNote.addEventListener('input',(e) =>{
    Array.from(visibleNote).forEach(function(element){
       let cardtitle = element.getElementsByTagName('h3')[0].innerText.toLowerCase();
        let cardtxt = element.getElementsByTagName('p')[1].innerText.toLowerCase();
-       if(cardtitle.includes(searchvalue) || cardtxt.includes(searchvalue))
+       if(!(cardtitle.includes(searchvalue) || cardtxt.includes(searchvalue)))
        {
-           element.classList.remove('hidden');
+           element.classList.add('hidden');
+          
        }
-       else
-       element.classList.add('hidden');
+       
     //    console.log(cardtxt);
     //    console.log(cardtitle);
 })
  }
+});
+searchNote.addEventListener('input',(e) =>{
+    if(searchNote.value == "")
+    { showNote();
+    }
 });
 
 
