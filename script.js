@@ -33,6 +33,7 @@ btnAdd.addEventListener('click',function (){
       }
       notesObj.push(myObj);
       localStorage.setItem("notes", JSON.stringify(notesObj));
+      showNote();
       document.querySelector('.addPop').classList.remove('hidden');
      setTimeout(() => {
         document.querySelector('.addPop').classList.add('hidden');
@@ -40,12 +41,14 @@ btnAdd.addEventListener('click',function (){
      
      noteTitle.value="";
      noteTxt.value="";
-     showNote();
+     
     }
+    showNote();
 });
 
 //show notes
 function showNote(){
+    console.log("in show note")
     let notes =localStorage.getItem("notes");
     if(notes == null){
        notesObj=[];
@@ -64,16 +67,21 @@ function showNote(){
         <button id="${index}" onclick="editNote(this.id); {window.scrollTo(0,0)}"  class="edit">Edit Note</button>
     </div> `
     });
+
     let noteElm = document.querySelector('.Add-Box');
-    console.log(noteElm);
-    if(notesObj.length !=0){
+    // console.log(noteElm);
+    if(notesObj.length != 0){
         noteElm.innerHTML= html;
+        console.log(notesObj.length);
+        document.querySelector('.Add-Box').classList.remove('hidden');
+        document.querySelector('.note-empty').classList.add('hidden');
+      
     }
     else{
-    document.querySelector('.note-empty').classList.remove('hidden');
     document.querySelector('.Add-Box').classList.add('hidden');
+    document.querySelector('.note-empty').classList.remove('hidden');
     }
-}
+ }
 
 //delete notes
 function deleteNote(index)
@@ -126,17 +134,17 @@ searchNote.addEventListener('input',(e) =>{
            element.classList.add('hidden');
           
        }
+       else
+       {
+        element.classList.remove('hidden');
+       }
        
     //    console.log(cardtxt);
     //    console.log(cardtitle);
 })
  }
 });
-searchNote.addEventListener('input',(e) =>{
-    if(searchNote.value == "")
-    { showNote();
-    }
-});
+
 
 
 
