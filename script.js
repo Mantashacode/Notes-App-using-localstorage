@@ -111,12 +111,12 @@ function editNote(index)
 searchNote.addEventListener('input',(e) =>{
  if(searchNote.value != " ")
  {
-    let searchvalue=searchNote.value;
+    let searchvalue=searchNote.value.toLowerCase();
     // console.log(searchvalue);
    let visibleNote= document.getElementsByClassName('content2 container');
    Array.from(visibleNote).forEach(function(element){
-      let cardtitle = element.getElementsByTagName('h3')[0].innerText;
-       let cardtxt = element.getElementsByTagName('p')[1].innerText;
+      let cardtitle = element.getElementsByTagName('h3')[0].innerText.toLowerCase();
+       let cardtxt = element.getElementsByTagName('p')[1].innerText.toLowerCase();
        if(cardtitle.includes(searchvalue) || cardtxt.includes(searchvalue))
        {
            element.classList.remove('hidden');
