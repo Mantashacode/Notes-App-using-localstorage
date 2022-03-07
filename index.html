@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Notes</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='homepage.css'>
+</head>
+<body>
+    <div class="navbar">
+        <span id="heading1">Magic Notes</span>
+        <span id="heading2" >Home</span>
+        <div id="sub-navbar">
+        <input class="search-content" type="text" id="search" placeholder="search">
+        </div>
+    </div>
+
+    <div class="content1" >
+     <div class="heading3" >Welcome to Magic Notes</div>
+      <div class="content1 container hidden">
+          <span id="lable1"><label>Add Title</label></span>
+          <textarea id="noteTitle" type="text"  rows="2" cols="80"  ></textarea>
+          <span id="lable2"><label>Add a note</label></span>
+          <textarea  id="newNote" type="text" rows="10" cols="80"></textarea>
+          <button class="add" >Add Note</button>
+      </div>
+     
+    </div>
+    <div class="content2">
+        <div class="heading3">Your Notes</div>
+        <div class="note-empty hidden">
+            <hr>
+            <h3>Nothing to show here,Use Add Notes section above to add Your notes here</h3> 
+        </div>
+        <div class="Add-Box">
+           <div class="content2 container">
+               <p id="note-counter">Note 1</p>
+               <h3 id="note-name">Hello world</h3>
+               <p id="note-text">ucgwugcuwgcuwajbcv</p>
+               <button class="delete" >Delete Note</button>
+               <button class="edit" >Edit Note</button>
+           </div>
+        </div>
+       </div>
+
+       <div class="addPop hidden" >
+           <p>Your Notes Added Successfully!📝</p>
+        </div>
+        <div class="deletePop hidden">
+            <p>Note Deleted Successfully! ✂</p>
+        </div>
+</body>
+
+
+<script src='script.js'></script> 
+</html>
